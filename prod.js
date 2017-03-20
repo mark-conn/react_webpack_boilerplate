@@ -6,8 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const VENDOR_LIBS = ['react-dom', 'react'];
 
-
-module.exports = function(env) {
+module.exports = function (env) {
     return {
         entry: {
             main: './src/index.js',
@@ -29,12 +28,13 @@ module.exports = function(env) {
               exclude: /node_modules/
             },
             {
-              test: /\.css$/,
-              use: [
-                'style-loader',
-                'css-loader?modules',
-                'postcss-loader',
-              ],
+                test: /\.scss$/,
+                use: [
+                    'style-loader',
+                    'css-loader?modules',
+                    'postcss-loader',
+                    'sass-loader'
+                ],
             },
           ],
         },
@@ -46,12 +46,12 @@ module.exports = function(env) {
             new webpack.HashedModuleIdsPlugin(),
             new WebpackChunkHash(),
             new ChunkManifestPlugin({
-              filename: "chunk-manifest.json",
-              manifestVariable: "webpackManifest"
+              filename: 'chunk-manifest.json',
+              manifestVariable: 'webpackManifest'
             }),
             new HtmlWebpackPlugin({
                 template: './index.html'
             })
         ]
-    }
+    };
 };

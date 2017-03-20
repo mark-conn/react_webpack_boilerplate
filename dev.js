@@ -1,7 +1,7 @@
 const resolve = require('path').resolve;
 const webpack = require('webpack');
 
-module.exports = function(env) {
+module.exports = function (env) {
     return {
         entry: [
             'react-hot-loader/patch',
@@ -28,8 +28,13 @@ module.exports = function(env) {
                     use: ['babel-loader'],
                     exclude: /node_modules/
                 }, {
-                    test: /\.css$/,
-                    use: ['style-loader', 'css-loader?modules', 'postcss-loader']
+                    test: /\.scss$/,
+                    use: [
+                        'style-loader',
+                        'css-loader?modules',
+                        'postcss-loader',
+                        'sass-loader'
+                    ]
                 }
             ]
         },
@@ -39,4 +44,4 @@ module.exports = function(env) {
             new webpack.NamedModulesPlugin()
         ]
     };
-}
+};
