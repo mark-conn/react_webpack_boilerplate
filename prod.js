@@ -4,7 +4,7 @@ const ChunkManifestPlugin = require("chunk-manifest-webpack-plugin");
 const WebpackChunkHash = require("webpack-chunk-hash");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const VENDOR_LIBS = ['react-dom', 'react'];
+const VENDOR_LIBS = ['react-dom', 'react', 'redux', 'react-redux', 'redux-thunk'];
 
 module.exports = function (env) {
     return {
